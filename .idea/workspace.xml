@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6003f47d-2b25-4f7b-b385-13eddf8bb193" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/truffle-config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1628424160542</updated>
       <workItem from="1628424162698" duration="14828000" />
-      <workItem from="1628495987965" duration="34094000" />
+      <workItem from="1628495987965" duration="35005000" />
     </task>
     <servers />
   </component>

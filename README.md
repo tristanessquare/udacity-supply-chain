@@ -79,6 +79,20 @@ await instance.addConsumer('0x1dc0687f6d3c6c3bcba7bd4f2bf30137706da221', {from: 
 - web3:     *1.2.4*
 - Metamask: *9.8.4*
 
+## Metamask
+
+Browser wallet plugin that allows to manage your accounts and interact with the Ethereum network. The plugin connects to an Ethereum node and allows to read data (see transactions)
+and send data to the network.
+
+## Web3
+
+Collection of Ethereum JavaScript APIs used for communication with the Ethereum network.
+
+## Truffle
+
+Development environment that makes creating, deploying and testing of Dapps and SmartContracts easier. Also includes Ganache, which allows you to locally run an Ethereum network
+with one single node.
+
 # IPFS
 
 This Dapp is not hostet on IPFS.
