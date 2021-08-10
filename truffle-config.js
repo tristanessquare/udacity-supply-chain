@@ -18,11 +18,10 @@
  *
  */
 
-// const HDWallet = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
     /**
@@ -49,8 +48,19 @@ module.exports = {
         },
 
         develop: {
-            port: 8545
+            host: "127.0.0.1",
+            port: 8545,
+            network_id: "*",
         },
+
+        rinkeby: {
+            provider: function () {
+                return new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/v3/1a8aa1e7fb99482fb2d3843890b96933");
+            },
+            network_id: 4,
+            gas: 25000000,
+            gasPrice: 900000000,
+        }
 
         // Another network with more advanced options...
         // advanced: {

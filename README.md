@@ -1,112 +1,89 @@
 # Supply chain & data auditing
 
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
+# Description
 
-The DApp User Interface when running should look like...
+This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A
+Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped,
+and similarly a Buyer can mark an item as Received.
 
-![truffle test](images/ftc_product_overview.png)
+# UML diagrams
 
-![truffle test](images/ftc_farm_details.png)
+## State diagram
 
-![truffle test](images/ftc_product_details.png)
+![](images/empty.png)
 
-![truffle test](images/ftc_transaction_history.png)
+## Activity diagram
 
+![](images/empty.png)
 
-## Getting Started
+## Sequence diagram
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+![](images/empty.png)
 
-### Prerequisites
+## Datamodel
 
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+![](images/empty.png)
 
-```
-Give examples (to be clarified)
-```
+# Deploying and running locally
 
-### Installing
+After running the *truffle develop* command you have to import some accounts into your Metamask using the secret key provided in the cli of the running node and select the
+Localhost 8545 network.
 
-> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function *mutability* and *visibility* to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24. 
-
-A step by step series of examples that tell you have to get a development env running
-
-Clone this repository:
-
-```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
-```
-
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
+The first account - which deploys the contract - will have all required roles. So if you want to have an easy day, then you can use this account for all actions of the Dapp. If you
+want to use another account to interact with the Dapp then you first need to add the required role to the account.
 
 ```
-cd project-6
+npm install -g truffle@5.4.2
+git clone git@github.com:tristanessquare/udacity-supply-chain.git
+cd udacity-supply-chain
 npm install
+truffle develop
 ```
 
-Launch Ganache:
-
-```
-ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/ganache-cli.png)
-
-In a separate terminal window, Compile smart contracts:
+In a new window... at the same file location
 
 ```
 truffle compile
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
-
-This will create the smart contract artifacts in folder ```build\contracts```.
-
-Migrate smart contracts to the locally running blockchain, ganache-cli:
-
-```
-truffle migrate
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_migrate.png)
-
-Test smart contracts:
-
-```
-truffle test
-```
-
-All 10 tests should pass.
-
-![truffle test](images/truffle_test.png)
-
-In a separate terminal window, launch the DApp:
-
-```
+truffle migrate --network=develop
+cd app
+npm install
 npm run dev
 ```
 
-## Built With
+Open browser: http://localhost:8080/
 
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+# Add roles to account (locally)
 
+To add a role to an account you have to call the corresponding *add*-method. (addFarmer, addRetailer, addDistributor, addConsumer)
+Be aware that only an account that already has a role is able to add this role to another account. The owner account of the deployed SupplyChain.sol contract has all roles.
 
-## Authors
+Imagine you want to add the consumer role to the account '0x1dc0687f6d3c6c3bcba7bd4f2bf30137706da221'. The account '0x344d27f0e6f8782d4dea02cc32e76fc3ac8f70a2' already has this
+role.
 
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
+```
+truffle console --network=develop
+```
 
-## Acknowledgments
+In the console...
 
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+```
+let instance = await SupplyChain.deployed()
+await instance.addConsumer('0x1dc0687f6d3c6c3bcba7bd4f2bf30137706da221', {from: '0x344d27f0e6f8782d4dea02cc32e76fc3ac8f70a2'})
+```
+
+# Frameworks
+
+- Node:     *16.6.1*
+- NPM:      *7.20.3*
+- Truffle:  *5.4.2*
+- web3:     *1.2.4*
+- Metamask: *9.8.4*
+
+# IPFS
+
+This Dapp is not hostet on IPFS.
+
+# Rinkeby deployment
+
+- Transaction: *0xc4d544412f0bc23f5a0a6a424def1b26bcd95f66018758dea7c5063a59797174*
+- Contract address: *0x5f55C94E8FdE2F79F4FF065A591713b7113fC2E9*
