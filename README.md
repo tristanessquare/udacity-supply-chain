@@ -10,19 +10,15 @@ and similarly a Buyer can mark an item as Received.
 
 ## State diagram
 
-![](images/empty.png)
+![](images/state-diagram.png)
 
 ## Activity diagram
 
-![](images/empty.png)
-
-## Sequence diagram
-
-![](images/empty.png)
+![](images/activity-diagram.png)
 
 ## Datamodel
 
-![](images/empty.png)
+![](images/datamodel.png)
 
 # Deploying and running locally
 
