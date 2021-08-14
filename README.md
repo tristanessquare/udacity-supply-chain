@@ -20,6 +20,14 @@ and similarly a Buyer can mark an item as Received.
 
 ![](images/datamodel.png)
 
+## Class diagram
+
+![](images/class-diagram.png)
+
+## Sequence diagram
+
+![](images/sequence-diagram.png)
+
 # Deploying and running locally
 
 After running the *truffle develop* command you have to import some accounts into your Metamask using the secret key provided in the cli of the running node and select the
